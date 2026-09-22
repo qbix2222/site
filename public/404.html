@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Пульт</title>
+    <script>
+      (() => {
+        const segmentCount = location.pathname.split('/').filter(Boolean).length > 1 ? 1 : 0;
+        const base = segmentCount ? '/' + location.pathname.split('/')[1] + '/' : '/';
+        const path = location.pathname.slice(base.length - 1) || '/';
+        const target = path + location.search + location.hash;
+        if (target === '/' && !location.search) {
+          location.replace(base);
+          return;
+        }
+        const guard = 'pult.spa.redirect';
+        if (sessionStorage.getItem(guard)) {
+          sessionStorage.removeItem(guard);
+          location.replace(base);
+          return;
+        }
+        sessionStorage.setItem(guard, '1');
+        location.replace(base + '?p=' + encodeURIComponent(target));
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

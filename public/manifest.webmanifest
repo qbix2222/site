@@ -1,0 +1,15 @@
+{
+  "name": "Пульт — консоль моделей",
+  "short_name": "Пульт",
+  "description": "Личная консоль для работы с моделями: провайдеры, контекст разговора, рабочее пространство файлов и исполнение кода.",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F0EFEB",
+  "theme_color": "#F0EFEB",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
